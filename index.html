@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taul Land Clearing | Brush Clearing & Forestry Mulching</title>
+  <meta name="description" content="Professional brush clearing, forestry mulching, and land clearing services. Free estimates. Locally owned and operated.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #1a3a2a;
+      --green-mid: #2d5a3f;
+      --green-light: #4a7c5c;
+      --earth: #8b6f47;
+      --earth-light: #c4a265;
+      --sand: #f5f0e8;
+      --white: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #e8e4dc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(26, 58, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--earth-light);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: var(--white); font-weight: 400; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--earth-light); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(26,58,42,0.92), rgba(45,90,63,0.85)),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23365" width="1200" height="800"/><circle cx="200" cy="600" r="300" fill="%23243" opacity="0.3"/><circle cx="900" cy="300" r="400" fill="%23254" opacity="0.2"/></svg>');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero-content { max-width: 800px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(196,162,101,0.2);
+      border: 1px solid var(--earth-light);
+      color: var(--earth-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--white);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--earth-light);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: rgba(232,228,220,0.8);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--earth-light);
+      color: var(--green-dark);
+    }
+    .btn-primary:hover {
+      background: var(--earth);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--earth);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    .trust-item .checkmark {
+      font-size: 1.1rem;
+    }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--green-dark);
+      margin-bottom: 0.75rem;
+    }
+    .section-header p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-header .accent-line {
+      width: 60px;
+      height: 4px;
+      background: var(--earth-light);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* SERVICES */
+    #services { background: var(--sand); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--green-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.8rem;
+    }
+    .service-card h3 {
+      color: var(--green-dark);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* WHY US */
+    #why-us { background: var(--white); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .why-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .why-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--earth-light);
+      margin-bottom: 0.5rem;
+    }
+    .why-item h3 {
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+    .why-item p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* BEFORE/AFTER */
+    #gallery { background: var(--green-dark); color: var(--white); }
+    #gallery .section-header h2 { color: var(--white); }
+    #gallery .section-header p { color: rgba(255,255,255,0.6); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .gallery-placeholder {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.03);
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .gallery-placeholder .camera { font-size: 2rem; }
+    .gallery-label {
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--earth-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* CONTACT */
+    #contact { background: var(--sand); }
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .contact-info h3 {
+      color: var(--green-dark);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .contact-detail .icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail strong { color: var(--green-dark); }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--green-light);
+      box-shadow: 0 0 0 3px rgba(74,124,92,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+    .footer-brand {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--earth-light);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand span { color: var(--white); font-weight: 400; }
+    footer p { font-size: 0.85rem; margin-bottom: 0.25rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--green-dark);
+        padding: 1rem 2rem;
+        gap: 1rem;
+      }
+      .contact-wrapper { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">TLC <span>| Taul Land Clearing</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#gallery">Our Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Locally Owned & Operated</div>
+      <h1>Clear the Land.<br><em>Keep It Clean.</em></h1>
+      <p class="hero-sub">Professional brush clearing and forestry mulching services. We turn overgrown land into usable property — fast, affordable, and done right.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="checkmark">&#10003;</span> Fully Insured</div>
+    <div class="trust-item"><span class="checkmark">&#10003;</span> Locally Owned & Operated</div>
+    <div class="trust-item"><span class="checkmark">&#10003;</span> Free Estimates</div>
+    <div class="trust-item"><span class="checkmark">&#10003;</span> [Licensed — update if applicable]</div>
+    <div class="trust-item"><span class="checkmark">&#10003;</span> [X+ Years Experience — update]</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header">
+      <h2>What We Do</h2>
+      <p>From overgrown brush to clean, usable land — we handle it all.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🌲</div>
+        <h3>Forestry Mulching</h3>
+        <p>Single-machine land clearing that grinds trees, brush, and stumps into natural mulch. No burning, no hauling, no mess.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪓</div>
+        <h3>Brush Clearing</h3>
+        <p>Reclaim overgrown pastures, fence lines, and property boundaries. We cut through the thick stuff so you don't have to.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Lot & Site Prep</h3>
+        <p>Getting ready to build? We clear and prep your lot for construction, driveways, pads, and more.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛤️</div>
+        <h3>Trail & Road Clearing</h3>
+        <p>Open up access roads, hunting trails, ATV paths, and utility right-of-ways through dense vegetation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us">
+    <div class="section-header">
+      <h2>Why Choose TLC</h2>
+      <p>We do things the right way — no shortcuts, no surprises.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-number">&#10003;</div>
+        <h3>Fully Insured</h3>
+        <p>We carry full liability insurance so you're protected. [Update with policy details / coverage amount if desired.]</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">Local</div>
+        <h3>Locally Owned</h3>
+        <p>We live here, we work here, and our reputation matters to us. You're not just a job number. [Update with town/county name.]</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">1</div>
+        <h3>One Machine, One Pass</h3>
+        <p>Forestry mulching clears and mulches in a single pass. No burn piles, no haul-off trucks, no erosion.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">Free</div>
+        <h3>Free Estimates</h3>
+        <p>We'll walk your property and give you an honest quote — no pressure, no obligation.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">Fast</div>
+        <h3>Quick Turnaround</h3>
+        <p>Most residential jobs completed in 1-2 days. We show up on time and get it done. [Update with real turnaround times.]</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">[X]</div>
+        <h3>Years of Experience</h3>
+        <p>[Update with actual experience, background, certifications, or equipment details.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-header">
+      <h2>Our Work</h2>
+      <p>See the difference professional land clearing makes.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="camera">📷</span>
+          <span>Before photo here</span>
+        </div>
+        <div class="gallery-label">Before</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="camera">📷</span>
+          <span>After photo here</span>
+        </div>
+        <div class="gallery-label">After</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="camera">📷</span>
+          <span>Before photo here</span>
+        </div>
+        <div class="gallery-label">Before</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="camera">📷</span>
+          <span>After photo here</span>
+        </div>
+        <div class="gallery-label">After</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <h2>Get Your Free Estimate</h2>
+      <p>Tell us about your project and we'll get back to you fast.</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Ready to Clear Your Land?</h3>
+        <p>Give us a call or fill out the form and we'll get back to you within 24 hours. We serve the surrounding area and are happy to come take a look at your property.</p>
+        <div class="contact-detail">
+          <div class="icon">📞</div>
+          <div><strong>Phone</strong><br>(555) 555-5555</div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📧</div>
+          <div><strong>Email</strong><br>info@taullandclearing.com</div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📍</div>
+          <div><strong>Service Area</strong><br>Central Kentucky & Surrounding Counties</div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a demo — form submission not connected yet.');">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="(555) 555-5555" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service">
+            <option value="">Select a service...</option>
+            <option>Forestry Mulching</option>
+            <option>Brush Clearing</option>
+            <option>Lot & Site Prep</option>
+            <option>Trail & Road Clearing</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="details">Project Details</label>
+          <textarea id="details" placeholder="Tell us about your property — size, what needs cleared, timeline, etc."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Request Free Estimate</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">TLC <span>| Taul Land Clearing</span></div>
+    <p>Professional Brush Clearing & Forestry Mulching</p>
+    <p style="margin-top: 1rem; font-size: 0.8rem;">&copy; 2026 Taul Land Clearing. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
