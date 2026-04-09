@@ -79,8 +79,8 @@
     /* HERO */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, rgba(26,58,42,0.92), rgba(45,90,63,0.85)),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23365" width="1200" height="800"/><circle cx="200" cy="600" r="300" fill="%23243" opacity="0.3"/><circle cx="900" cy="300" r="400" fill="%23254" opacity="0.2"/></svg>');
+      background: linear-gradient(135deg, rgba(26,58,42,0.72), rgba(45,90,63,0.65)),
+                  url('images/hero-mulcher.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -291,18 +291,12 @@
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.1);
     }
-    .gallery-placeholder {
-      height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.03);
-      flex-direction: column;
-      gap: 0.5rem;
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
     }
-    .gallery-placeholder .camera { font-size: 2rem; }
     .gallery-label {
       padding: 1rem;
       text-align: center;
@@ -551,32 +545,20 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="camera">📷</span>
-          <span>Before photo here</span>
-        </div>
-        <div class="gallery-label">Before</div>
+        <img src="images/before-after-1.jpg" alt="Before and after land clearing — overgrown brush to clean open field">
+        <div class="gallery-label">Full Land Clearing</div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="camera">📷</span>
-          <span>After photo here</span>
-        </div>
-        <div class="gallery-label">After</div>
+        <img src="images/before-after-2.jpg" alt="Before and after underbrush clearing between trees">
+        <div class="gallery-label">Underbrush Clearing</div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="camera">📷</span>
-          <span>Before photo here</span>
-        </div>
-        <div class="gallery-label">Before</div>
+        <img src="images/before-after-3.jpg" alt="Before and after roadside and lot clearing">
+        <div class="gallery-label">Lot & Road Clearing</div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="camera">📷</span>
-          <span>After photo here</span>
-        </div>
-        <div class="gallery-label">After</div>
+        <img src="images/mulcher-action.jpg" alt="CTL skid loader with forestry mulcher in action">
+        <div class="gallery-label">Our Equipment at Work</div>
       </div>
     </div>
   </section>
